@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class Main {
+public class Main {dvdvfbfb
     public static String id;
     public static String nombre;
     public static String sisben;
