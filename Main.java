@@ -1,32 +1,48 @@
+
+import java.util.Scanner;
+
 public class Main {
+    public static String id;
+    public static String nombre;
+    public static String sisben;
+    public static String subsidio_ministerio;
+    public static String direccion;
+    public static String telefono;
+    public static String correo;
+
     public static void main(String[] args) {
-        SistemaGestion sistema = new SistemaGestion();
+        System.out.print("Construcciones Urbanas C.A.S.");
+        Scanner scanner = new Scanner(System.in);
 
-        // Registro de clientes
-        Cliente cliente1 = new Cliente("12345678", "Carlos Perez", "Nivel 2", "No", "Calle 1", "123456789", "carlos@gmail.com", "Compra");
-        sistema.registrarCliente(cliente1);
+        System.out.print("| Elige una de las siguientes opciones\n  1) Registrarme en el sistema\n| Eliges: ");
+        int selection = scanner.nextInt();
 
-        // Registro de asesores
-        Asesor asesor1 = new Asesor("87654321", "Juan Lopez", "Calle 2", "987654321", "juan@gmail.com");
-        sistema.registrarAsesor(asesor1);
+        if (selection > 1 || selection < 1) {
+            System.out.print("Debe seleccionar una de las opciones disponibles");
+        } else {
+            System.out.print("Introduce tu numero de identificación: ");
+            id = scanner.nextLine();
 
-        // Registro de proyectos
-        Proyecto proyecto1 = new Proyecto("Proyecto A", 2, "Construcción");
-        sistema.registrarProyecto(proyecto1);
+            System.out.print("Introduce tu nombre completo: ");
+            nombre = scanner.nextLine();
 
-        // Registro de una venta
-        Venta venta1 = new Venta(50000.0, 12, 0.05, cliente1, "01/09/2024", "Pendiente");
-        sistema.registrarVenta(venta1);
+            System.out.print("Introduce tu sisben: ");
+            sisben = scanner.nextLine();
 
-        // Registro de un pago
-        Pago pago1 = new Pago(10000.0, "02/09/2024", cliente1, asesor1, "Pendiente");
-        sistema.registrarPago(pago1);
+            System.out.print("Introduce tu subsidio ministerio: ");
+            subsidio_ministerio = scanner.nextLine();
 
-        // Ver los datos registrados
-        System.out.println("Proyectos: " + sistema.obtenerProyectos().size());
-        System.out.println("Clientes: " + sistema.obtenerClientes().size());
-        System.out.println("Asesores: " + sistema.obtenerAsesores().size());
-        System.out.println("Ventas: " + sistema.obtenerVentas().size());
-        System.out.println("Pagos: " + sistema.obtenerPagos().size());
+            System.out.print("Introduce tu dirección de residencia: ");
+            direccion = scanner.nextLine();
+
+            System.out.print("Introduce tu numero telefonico: ");
+            telefono = scanner.nextLine();
+
+            System.out.print("Introduce tu correo electronico: ");
+            correo = scanner.nextLine();
+
+            System.out.println("\n| Acabas de ser registrado con éxito |");
+            System.out.println("\nInformación recolectada y guardada");
+        }
     }
 }
