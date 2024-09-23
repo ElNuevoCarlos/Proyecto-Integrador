@@ -1,48 +1,54 @@
-
 import java.util.Scanner;
 
 public class Main {
-    public static String id;
-    public static String nombre;
-    public static String sisben;
-    public static String subsidio_ministerio;
-    public static String direccion;
-    public static String telefono;
-    public static String correo;
+    public static Client register(Scanner scanner) {
+        System.out.print("Introduce tu número de identificación: ");
+        String id = scanner.nextLine();
+        System.out.print("Introduce tu nombre completo: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Introduce tu SISBEN: ");
+        String sisben = scanner.nextLine();
+        System.out.print("Introduce tu subsidio ministerio: ");
+        String subsidioMinisterio = scanner.nextLine();
+        System.out.print("Introduce tu dirección de residencia: ");
+        String direccion = scanner.nextLine();
+        System.out.print("Introduce tu número telefónico: ");
+        String telefono = scanner.nextLine();
+        System.out.print("Introduce tu correo electrónico: ");
+        String correo = scanner.nextLine();
+
+        Client nuevoCliente = new Client(id, nombre, sisben, subsidioMinisterio, direccion, telefono, correo);
+        System.out.println("\n| Acabas de ser registrado con éxito |");
+        nuevoCliente.mostrar();
+
+        return nuevoCliente;
+    }
+
+    public static void login(Scanner scanner) {
+        System.out.print("En construcción");
+    }
 
     public static void main(String[] args) {
-        System.out.print("Construcciones Urbanas C.A.S.");
+        System.out.println("Construcciones Urbanas C.A.S.");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("| Elige una de las siguientes opciones\n  1) Registrarme en el sistema\n| Eliges: ");
+        System.out.println("| Elige una de las siguientes opciones |");
+        System.out.println("- 1) Registrarme en el sistema");
+        System.out.println("- 2) Logearme en el sistema");
+        System.out.print("| Eliges: ");
         int selection = scanner.nextInt();
+        scanner.nextLine();
 
-        if (selection > 1 || selection < 1) {
-            System.out.print("Debe seleccionar una de las opciones disponibles");
-        } else {
-            System.out.print("Introduce tu numero de identificación: ");
-            id = scanner.nextLine();
-
-            System.out.print("Introduce tu nombre completo: ");
-            nombre = scanner.nextLine();
-
-            System.out.print("Introduce tu sisben: ");
-            sisben = scanner.nextLine();
-
-            System.out.print("Introduce tu subsidio ministerio: ");
-            subsidio_ministerio = scanner.nextLine();
-
-            System.out.print("Introduce tu dirección de residencia: ");
-            direccion = scanner.nextLine();
-
-            System.out.print("Introduce tu numero telefonico: ");
-            telefono = scanner.nextLine();
-
-            System.out.print("Introduce tu correo electronico: ");
-            correo = scanner.nextLine();
-
-            System.out.println("\n| Acabas de ser registrado con éxito |");
-            System.out.println("\nInformación recolectada y guardada");
+        switch (selection) {
+            case 1:
+                Client client = register(scanner);
+                break;
+            case 2:
+                login(scanner);
+                break;
+            default:
+                System.out.println("Debe seleccionar una de las opciones disponibles.");
+                break;
         }
     }
 }
